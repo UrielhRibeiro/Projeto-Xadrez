@@ -11,7 +11,8 @@ import projeto.xadrez.classes.Player;
 
 public class Pawn extends Piece {
 
-    private boolean isFirstMove = true;
+    protected boolean isFirstMove = true;
+
     public Pawn(Player player, int x, int y) {
         super(player, x, y);
     }
@@ -23,7 +24,7 @@ public class Pawn extends Piece {
 
     public Piece transformTo(String type) throws Exception, InstantiationException,
             IllegalAccessException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException {
-        String path = "util.pieces.";
+        String path = "projeto.xadrez.classes.pecas.";
         if (type.equals("Peao") || type.equals("King"))
             throw new Exception();
         Constructor<?> pieceConstructor = Class.forName(path + type).getConstructor(Player.class, int.class, int.class);

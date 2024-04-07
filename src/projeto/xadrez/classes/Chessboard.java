@@ -11,6 +11,8 @@ public class Chessboard {
     public Piece[][] pieces = new Piece[size][size];
 
 
+
+
     // === Construtor ===
     public Chessboard(Player p1, Player p2) {
        this.players = new Player[]{p1,p2};

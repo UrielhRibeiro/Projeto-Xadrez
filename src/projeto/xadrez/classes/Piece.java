@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import static java.lang.Math.pow;
 
 public abstract class Piece {
+    private boolean isFirstMove = true;
     public int x, y;
     protected Player piecePlayer;
     protected final int walkDirection; //Direção onde a peça (branca ou preta) irá se mover.
@@ -34,5 +35,12 @@ public abstract class Piece {
 
     public int getWalkDirection() {
         return walkDirection;
+    }
+
+    protected boolean isFirstMove() {
+        return isFirstMove;
+    }
+    protected void setFirstMove() {
+        isFirstMove = false;
     }
 }
