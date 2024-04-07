@@ -22,6 +22,8 @@ public class Pair <T1,T2>{
         if (!v1.equals(pair.v1)) // Se dois objetos Pair possuem os mesmos valores v1 e v2, então eles são considerados iguais.
             return false;
         return v2.equals(pair.v2);
+
+
     }
 }
 
