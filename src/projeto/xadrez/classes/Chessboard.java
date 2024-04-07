@@ -14,8 +14,9 @@ public class Chessboard {
 
 
     // === Construtor ===
-    public Chessboard(Player p1, Player p2) {
+    public Chessboard(Player p1, Player p2) throws Exception {
        this.players = new Player[]{p1,p2};
+       CreateAllPieces(this);
     }
 
     // === Método para inicializar as peças ===

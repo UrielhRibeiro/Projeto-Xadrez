@@ -4,14 +4,10 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
-import projeto.xadrez.classes.Chessboard;
-import projeto.xadrez.classes.Pair;
-import projeto.xadrez.classes.Piece;
-import projeto.xadrez.classes.Player;
+import projeto.xadrez.Enum.*;
+import projeto.xadrez.classes.*;
 
 public class Pawn extends Piece {
-
-    protected boolean isFirstMove = true;
 
     public Pawn(Player player, int x, int y) {
         super(player, x, y);
@@ -19,13 +15,13 @@ public class Pawn extends Piece {
 
     @Override
     public void MovePiece(Chessboard chessboard, int pieceX, int pieceY) {
-        isFirstMove = false;
+        setFirstMoveToFalse();
     }
 
-    public Piece transformTo(String type) throws Exception, InstantiationException,
+    public Piece transformTo(Epieces type) throws Exception, InstantiationException,
             IllegalAccessException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException {
         String path = "projeto.xadrez.classes.pecas.";
-        if (type.equals("Peao") || type.equals("King"))
+        if (type.equals(Epieces.Pawn) || type.equals(Epieces.King))
             throw new Exception();
         Constructor<?> pieceConstructor = Class.forName(path + type).getConstructor(Player.class, int.class, int.class);
         return (Piece) pieceConstructor.newInstance(this.piecePlayer, x, y);
@@ -40,7 +36,7 @@ public class Pawn extends Piece {
                 break;
             var e = new Pair<Integer, Integer>(x, y + i);
             vec.add(e);
-            if (!isFirstMove)
+            if (!isFirstMove())
                 break;
         }
         if ((x + walkDirection <= chessboard.size && y + walkDirection >= chessboard.size)
@@ -56,7 +52,4 @@ public class Pawn extends Piece {
         return vec;
     }
 
-    public boolean getIfIsFirstMove() {
-        return isFirstMove;
-    }
 }

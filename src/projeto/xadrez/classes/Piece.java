@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import static java.lang.Math.pow;
 
 public abstract class Piece {
-    private boolean isFirstMove = true;
+
+    private boolean isFirstMove = true;// lembrar de definir no MovePiece se mover ser defindo pra falso
     public int x, y;
     protected Player piecePlayer;
     protected final int walkDirection; //Direção onde a peça (branca ou preta) irá se mover.
@@ -37,10 +38,12 @@ public abstract class Piece {
         return walkDirection;
     }
 
-    protected boolean isFirstMove() {
+    public boolean isFirstMove() {
         return isFirstMove;
     }
-    protected void setFirstMove() {
+
+    protected void setFirstMoveToFalse() {
         isFirstMove = false;
     }
+
 }

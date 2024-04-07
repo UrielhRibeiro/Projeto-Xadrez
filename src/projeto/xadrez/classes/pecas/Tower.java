@@ -1,6 +1,23 @@
 package projeto.xadrez.classes.pecas;
 
-public class Tower {
+import projeto.xadrez.classes.*;
+
+import java.util.ArrayList;
+
+public class Tower extends Piece {
 
 
+    public Tower(Player player, int x, int y) {
+        super(player, x, y);
+    }
+
+    @Override
+    public void MovePiece(Chessboard chessboard, int pieceX, int pieceY) {
+        setFirstMoveToFalse();
+    }
+
+    @Override
+    public ArrayList<Pair<Integer, Integer>> getAllPossibleMoves(Chessboard chessboard) {
+        return null;
+    }
 }
