@@ -6,12 +6,10 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 public class Chessboard {
+
     private Player[] players;
     public final int size = 8;
     public Piece[][] pieces = new Piece[size][size];
-
-
-
 
     // === Construtor ===
     public Chessboard(Player p1, Player p2) throws Exception {

@@ -1,6 +1,12 @@
 package projeto.xadrez.classes.pecas;
 
-public class Horse {
+import projeto.xadrez.classes.*;
+
+import java.util.ArrayList;
+
+public class Horse extends Piece {
+
+    public int x = 10;
 
     public Horse(Player player, int x, int y) {
         super(player, x, y);

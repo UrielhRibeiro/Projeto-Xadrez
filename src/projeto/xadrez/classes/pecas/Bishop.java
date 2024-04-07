@@ -1,6 +1,13 @@
 package projeto.xadrez.classes.pecas;
 
-public class Bishop {
+import projeto.xadrez.classes.Chessboard;
+import projeto.xadrez.classes.Pair;
+import projeto.xadrez.classes.Piece;
+import projeto.xadrez.classes.Player;
+
+import java.util.ArrayList;
+
+public class Bishop extends Piece {
 
     public Bishop(Player player, int x, int y) {
         super(player, x, y);
