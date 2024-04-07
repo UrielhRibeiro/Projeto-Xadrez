@@ -1,27 +1,21 @@
 package projeto.xadrez.classes;
 
 public class Player {
-    private String nome;
-    private int idade;
+    private static int countOfPlayer = 0;
+    private final int id = countOfPlayer + 1;
+    private String name;
 
     // === Construtor ===
-    public Player(String nome, int idade) {
-        this.nome = nome;
-        this.idade = idade;
+    public Player(String name) {
+        countOfPlayer++;
+        this.name = name;
     }
 
-    // === Métodos Construtores ===
-    public String getNome() {
-        return nome;
+    // === Métodos Encapsuladores ===
+    public int getId() {
+        return id;
     }
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public String getName() {
+        return name;
     }
 }
