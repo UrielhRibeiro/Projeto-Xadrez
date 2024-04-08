@@ -4,9 +4,21 @@ import java.util.Scanner;
 import projeto.xadrez.Enum.*;
 import projeto.xadrez.classes.*;
 import java.lang.reflect.*;
+import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
+
+    public static void clearConsole() throws IOException, InterruptedException {
+
+        if (System.getProperty("os.name").contains("Windows"))
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        else
+            Runtime.getRuntime().exec("clear");
+    }
+
+    //usamos o reflection para pegar todos as caracteristicas dos objetos instanciados
+    // nao sao as caracteristicas de cada objeto individualizado, porem todos os tipos ja instanciados
+    public static void main(String[] args) throws Exception,IOException, InterruptedException {
 
         Scanner sc = new Scanner(System.in);
 
@@ -18,11 +30,15 @@ public class Main {
 
         Chessboard c = new Chessboard(p1, p2);
 
+        Chessboard.createAllPieces(c);
+        clearConsole();
+
         // ==== MENU PARA VISUALIZAR =====
         boolean stop = false;
         while( !stop ){
+            clearConsole();
 
-            System.out.println("==== Bem vindo ao jogo XaXaDrez ==== ");
+            System.out.println("\n==== Bem vindo ao jogo XaXaDrez ==== ");
             System.out.println("=== Menu de Opções ===");
 
             System.out.println("Nome Do Jogador - [1]");
@@ -33,6 +49,7 @@ public class Main {
             int choose = sc.nextInt();
 
             switch(choose) {
+
                 case 1:
                     for (int i = 0; i < c.getPlayers().length; i++){
                         System.out.println("\nPlayer " + (i +1) + ": " + c.getPlayers()[i].getName());
